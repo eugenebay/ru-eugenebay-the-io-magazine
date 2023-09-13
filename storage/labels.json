@@ -1,0 +1,12 @@
+[
+  {
+    "labelId": 1,
+    "labelName": "Sun",
+    "labelStatus": "ACTIVE"
+  },
+  {
+    "labelId": 2,
+    "labelName": "Earth",
+    "labelStatus": "ACTIVE"
+  }
+]

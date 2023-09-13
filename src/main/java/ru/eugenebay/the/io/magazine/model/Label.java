@@ -1,14 +1,14 @@
 package ru.eugenebay.the.io.magazine.model;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
+@Builder
 public class Label {
-    private final Long labelId;
-    @NonNull
+    private Long labelId;
     private String labelName;
-    private Status status;
+    private Status labelStatus;
 
     @Override
     public String toString() {

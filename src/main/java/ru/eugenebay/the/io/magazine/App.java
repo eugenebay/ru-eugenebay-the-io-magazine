@@ -1,9 +1,9 @@
 package ru.eugenebay.the.io.magazine;
 
-import ru.eugenebay.the.io.magazine.console.ConsoleRunner;
+import ru.eugenebay.the.io.magazine.common.Application;
 
 public class App {
     public static void main(String[] args) {
-        ConsoleRunner.run();
+        Application.run();
     }
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 @Builder
 public class Post {
     private Long postId;
-    private String postContent;
+    private String content;
     private LocalDateTime postCreated;
     private LocalDateTime postUpdated;
     private Set<Label> labels;
@@ -18,6 +18,6 @@ public class Post {
 
     @Override
     public String toString() {
-        return postContent;
+        return content;
     }
 }

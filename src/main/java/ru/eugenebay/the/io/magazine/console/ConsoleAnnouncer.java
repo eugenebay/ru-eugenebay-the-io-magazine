@@ -4,7 +4,7 @@ import static ru.eugenebay.the.io.magazine.console.ConsoleColor.WHITE;
 
 public class ConsoleAnnouncer implements Announcer {
     @Override
-    public void announce(String text) {
-        colorfulAnnounce(text, WHITE);
+    public <T> void announce(T context) {
+        colorfulAnnounce(context, WHITE);
     }
 }
