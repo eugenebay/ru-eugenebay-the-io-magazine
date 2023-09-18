@@ -1,7 +1,8 @@
 package ru.eugenebay.the.io.magazine.model;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.eugenebay.the.io.magazine.common.ApplicationObjectFactory;
+import ru.eugenebay.the.io.magazine.common.InjectByType;
+import ru.eugenebay.the.io.magazine.common.Singleton;
 import ru.eugenebay.the.io.magazine.console.Announcer;
 import ru.eugenebay.the.io.magazine.console.ConsoleMessage;
 
@@ -9,10 +10,11 @@ import java.util.Objects;
 
 import static ru.eugenebay.the.io.magazine.console.ConsoleColor.*;
 
-//TODO Quote can be Singleton, cuz everytime we will be use only say() method for show writer's quote.
 @Slf4j
+@Singleton
 public class Quote {
-    private final Announcer announcer = ApplicationObjectFactory.getInstance().createObject(Announcer.class);
+    @InjectByType
+    private Announcer announcer;
 
     public void say(Writer writer) {
         var post = writer.getPosts()

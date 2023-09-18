@@ -4,6 +4,6 @@ import ru.eugenebay.the.io.magazine.common.Application;
 
 public class App {
     public static void main(String[] args) {
-        Application.run();
+        Application.run(args);
     }
 }
