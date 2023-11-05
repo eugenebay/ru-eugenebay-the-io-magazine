@@ -2,6 +2,7 @@ package ru.eugenebay.the.io.magazine.common;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import ru.eugenebay.the.io.magazine.annotations.ObjectTuner;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Method;
@@ -29,12 +30,12 @@ public class ApplicationObjectFactory {
     public <T> T createObject(Class<T> implementation) {
         T instance = implementation.getDeclaredConstructor().newInstance();
         objectTuners.forEach(tuner -> tuner.tune(instance, context));
-        postConstructInvocation(instance);
+        postConstructAnnotationInvocation(instance);
         return instance;
     }
 
     @SneakyThrows
-    private <T> void postConstructInvocation(T instance) {
+    private <T> void postConstructAnnotationInvocation(T instance) {
         for (Method method : instance.getClass().getMethods()) {
             if (method.isAnnotationPresent(PostConstruct.class)) {
                 method.invoke(instance);

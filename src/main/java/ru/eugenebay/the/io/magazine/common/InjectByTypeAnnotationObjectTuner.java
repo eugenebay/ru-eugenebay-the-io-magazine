@@ -1,6 +1,8 @@
 package ru.eugenebay.the.io.magazine.common;
 
 import lombok.SneakyThrows;
+import ru.eugenebay.the.io.magazine.annotations.InjectByType;
+import ru.eugenebay.the.io.magazine.annotations.ObjectTuner;
 
 import java.lang.reflect.Field;
 

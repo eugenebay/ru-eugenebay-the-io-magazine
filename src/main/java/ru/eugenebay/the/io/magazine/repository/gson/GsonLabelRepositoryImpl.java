@@ -3,10 +3,10 @@ package ru.eugenebay.the.io.magazine.repository.gson;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
-import ru.eugenebay.the.io.magazine.common.InjectProperty;
-import ru.eugenebay.the.io.magazine.common.Singleton;
+import ru.eugenebay.the.io.magazine.annotations.InjectProperty;
+import ru.eugenebay.the.io.magazine.annotations.Singleton;
 import ru.eugenebay.the.io.magazine.model.Label;
-import ru.eugenebay.the.io.magazine.repository.LabelRepository;
+import ru.eugenebay.the.io.magazine.annotations.LabelRepository;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -19,18 +19,16 @@ import java.util.Optional;
 
 @Slf4j
 @Singleton
-public class GsonLabelRepositoryImp implements LabelRepository {
-    @InjectProperty
+public class GsonLabelRepositoryImpl implements LabelRepository {
+    @InjectProperty(value = "the.io.magazine.label.path")
     private String labelsPath;
     private final Gson gson = new Gson();
 
     @Override
     public List<Label> getAll() {
         List<Label> labels = null;
-        //TODO Check Path is not Null
-        // If File Application.properties doesn't exist -> we should create him
-        // and write at him default values labelsPath -> storage/labels.json etc.
-        // IF storage files don't exists -> we should create them
+        //TODO Check Path is not Null.
+        // IF storage file don't exists -> we should create them
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(Path.of(labelsPath))))) {
             Type labelType = new TypeToken<ArrayList<Label>>() {
             }.getType();
@@ -46,7 +44,7 @@ public class GsonLabelRepositoryImp implements LabelRepository {
         var labels = getAll();
         return labels.stream()
                 .filter(lab -> lab.getLabelId().equals(inputLabelId))
-                .findAny()
+                .findFirst()
                 .orElseThrow(() -> {
                     var ex = new IllegalArgumentException("There is no Label with labelId: " + inputLabelId);
                     log.error(ex.getLocalizedMessage());
@@ -63,13 +61,13 @@ public class GsonLabelRepositoryImp implements LabelRepository {
         archive(labels);
         return label;
     }
-
+    // TODO Find by ID or mb better findByName
     @Override
     public Label update(Label label) {
         var labels = getAll();
         var storageLabel = labels.stream()
                 .filter(lab -> lab.getLabelId().equals(label.getLabelId()))
-                .findAny()
+                .findFirst()
                 .orElse(save(label));
         if (!storageLabel.equals(label)) {
             storageLabel.setLabelName(label.getLabelName());

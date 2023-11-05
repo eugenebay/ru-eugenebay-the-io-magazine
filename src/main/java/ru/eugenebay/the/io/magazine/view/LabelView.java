@@ -2,8 +2,8 @@ package ru.eugenebay.the.io.magazine.view;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import ru.eugenebay.the.io.magazine.common.InjectByType;
-import ru.eugenebay.the.io.magazine.common.Singleton;
+import ru.eugenebay.the.io.magazine.annotations.InjectByType;
+import ru.eugenebay.the.io.magazine.annotations.Singleton;
 import ru.eugenebay.the.io.magazine.controller.LabelController;
 import ru.eugenebay.the.io.magazine.model.Label;
 import ru.eugenebay.the.io.magazine.model.Status;

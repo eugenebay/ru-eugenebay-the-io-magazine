@@ -2,6 +2,9 @@ package ru.eugenebay.the.io.magazine.common;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.eugenebay.the.io.magazine.annotations.ImplementationFinder;
+import ru.eugenebay.the.io.magazine.annotations.Singleton;
+import ru.eugenebay.the.io.magazine.config.ApplicationPropertiesConfig;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,10 +13,13 @@ public class ApplicationContext {
     @Setter
     private ApplicationObjectFactory factory;
     @Getter
+    private final ApplicationPropertiesConfig applicationConfig;
+    @Getter
     private final ImplementationFinder implementationFinder;
     private final Map<Class<?>, Object> contextCache = new ConcurrentHashMap<>();
 
-    public ApplicationContext(ImplementationFinder implementationFinder) {
+    public ApplicationContext(ApplicationPropertiesConfig applicationConfig, ImplementationFinder implementationFinder) {
+        this.applicationConfig = applicationConfig;
         this.implementationFinder = implementationFinder;
     }
 

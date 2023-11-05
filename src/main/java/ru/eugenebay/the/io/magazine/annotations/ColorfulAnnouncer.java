@@ -1,4 +1,6 @@
-package ru.eugenebay.the.io.magazine.console;
+package ru.eugenebay.the.io.magazine.annotations;
+
+import ru.eugenebay.the.io.magazine.console.ConsoleColor;
 
 import static ru.eugenebay.the.io.magazine.console.ConsoleColor.RESET;
 

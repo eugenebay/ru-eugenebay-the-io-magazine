@@ -1,7 +1,7 @@
 package ru.eugenebay.the.io.magazine.view;
 
 import lombok.Data;
-import ru.eugenebay.the.io.magazine.common.InjectByType;
+import ru.eugenebay.the.io.magazine.annotations.InjectByType;
 import ru.eugenebay.the.io.magazine.model.*;
 
 import javax.annotation.PostConstruct;
@@ -34,7 +34,7 @@ public class View {
         var post = Post.builder()
                 .postId(atomicLong.incrementAndGet())
                 .content("Из одной системы нам еще долго не выбраться — из солнечной.")
-                .postCreated(LocalDateTime.now().format(formatter))
+                .postCreated(LocalDateTime.now())
                 .labels(labels)
                 .postStatus(PostStatus.ACTIVE)
                 .build();

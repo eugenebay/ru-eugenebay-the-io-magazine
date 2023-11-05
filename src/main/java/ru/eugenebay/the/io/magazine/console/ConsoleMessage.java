@@ -1,15 +1,11 @@
 package ru.eugenebay.the.io.magazine.console;
 
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
-public enum ConsoleMessage {
-    TITLE("The IO Magazine"),
-    MAIN("TODO TEXT");
-
-    private final String message;
-
-    ConsoleMessage(String message) {
-        this.message = message;
-    }
+@Data
+@Builder
+public class ConsoleMessage {
+    private String header;
+    private String text;
 }

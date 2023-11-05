@@ -3,6 +3,7 @@ package ru.eugenebay.the.io.magazine.common;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.reflections.Reflections;
+import ru.eugenebay.the.io.magazine.annotations.ImplementationFinder;
 import ru.eugenebay.the.io.magazine.exception.MultipleInterfaceImplementationException;
 
 import java.util.HashMap;

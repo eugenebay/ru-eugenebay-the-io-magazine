@@ -1,4 +1,4 @@
-package ru.eugenebay.the.io.magazine.common;
+package ru.eugenebay.the.io.magazine.annotations;
 
 import org.reflections.Reflections;
 

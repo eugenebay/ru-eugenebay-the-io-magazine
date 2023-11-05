@@ -1,6 +1,7 @@
 package ru.eugenebay.the.io.magazine.console;
 
-import ru.eugenebay.the.io.magazine.common.Singleton;
+import ru.eugenebay.the.io.magazine.annotations.Announcer;
+import ru.eugenebay.the.io.magazine.annotations.Singleton;
 
 import static ru.eugenebay.the.io.magazine.console.ConsoleColor.WHITE;
 

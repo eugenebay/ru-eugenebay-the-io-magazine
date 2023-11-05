@@ -1,4 +1,4 @@
-package ru.eugenebay.the.io.magazine.repository;
+package ru.eugenebay.the.io.magazine.annotations;
 
 import java.util.List;
 

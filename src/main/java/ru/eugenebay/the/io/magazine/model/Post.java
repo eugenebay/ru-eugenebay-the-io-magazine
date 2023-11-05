@@ -3,6 +3,7 @@ package ru.eugenebay.the.io.magazine.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -10,8 +11,8 @@ import java.util.Set;
 public class Post {
     private Long postId;
     private String content;
-    private String postCreated;
-    private String postUpdated;
+    private LocalDateTime postCreated;
+    private LocalDateTime postUpdated;
     private Set<Label> labels;
     private PostStatus postStatus;
 
